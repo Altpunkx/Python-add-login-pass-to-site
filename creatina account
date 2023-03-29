@@ -1,0 +1,26 @@
+import json
+
+def save_credentials(username, password):
+    # open the credentials JSON file for writing in append mode
+    with open('credentials.json', 'a') as file:
+        # create a dictionary to store the new credentials
+        credentials = {
+            'username': username,
+            'password': password
+        }
+        # write the credentials dictionary to the JSON file
+        json.dump(credentials, file)
+        file.write('\n') # add a new line character for readability
+
+username = input("Enter a username: ")
+password = input("Enter a password: ")
+
+# You can customize the validation rules for the username and password.
+if len(username) < 6:
+    print("Username must be at least 6 characters long.")
+elif len(password) < 8:
+    print("Password must be at least 8 characters long.")
+else:
+    # call the save_credentials function to save the credentials to the JSON file
+    save_credentials(username, password)
+    print("Account created successfully!")

@@ -1,0 +1,34 @@
+import random
+
+# Generate a random captcha string
+def generate_captcha():
+    captcha = ""
+    for _ in range(6):
+        captcha += str(random.randint(0, 9))
+    return captcha
+
+# Check if user input matches captcha
+def check_captcha(input_captcha, captcha):
+    return input_captcha == captcha
+
+# Main login function
+def login():
+    # Generate captcha
+    captcha = generate_captcha()
+
+    # Display captcha to user
+    print("Please enter the following captcha: ", captcha)
+
+    # Request user input for password and captcha
+    password = input("Enter password: ")
+    input_captcha = input("Enter captcha: ")
+
+    # Check if captcha matches
+    if check_captcha(input_captcha, captcha):
+        # Perform login logic here
+        print("Login successful!")
+    else:
+        print("Captcha verification failed. Login unsuccessful.")
+
+# Call login function
+login()

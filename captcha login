@@ -19,7 +19,7 @@ def login():
     # Display captcha to user
     print("Please enter the following captcha: ", captcha)
 
-    # Request user input for password and captcha
+    # Request user input for password and captcha here
     password = input("Enter password: ")
     input_captcha = input("Enter captcha: ")
 
